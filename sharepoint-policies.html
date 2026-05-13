@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Policies & Procedures — Gunderson Marine</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #102040;
+    --steel: #1e3a5f;
+    --ocean: #1565c0;
+    --sky: #2196f3;
+    --ice: #e3f2fd;
+    --gold: #f0a500;
+    --white: #ffffff;
+    --mist: #f4f7fb;
+    --slate: #5a7184;
+    --border: #d0dce8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--mist);
+    color: var(--navy);
+    min-height: 100vh;
+  }
+
+  /* ── TOP NAV ── */
+  .topbar {
+    background: var(--navy);
+    height: 48px;
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    gap: 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .topbar-logo svg { opacity: 0.9; }
+  .topbar-nav {
+    display: flex;
+    gap: 4px;
+    margin-left: 16px;
+    flex: 1;
+  }
+  .topbar-nav a {
+    color: rgba(255,255,255,0.72);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  .topbar-nav a:hover, .topbar-nav a.active {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-left: auto;
+  }
+  .topbar-search {
+    display: flex;
+    align-items: center;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 6px;
+    padding: 5px 12px;
+    gap: 8px;
+    width: 220px;
+  }
+  .topbar-search input {
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--white);
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+  }
+  .topbar-search input::placeholder { color: rgba(255,255,255,0.45); }
+  .avatar {
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 600; color: var(--navy);
+  }
+
+  /* ── SITE NAV ── */
+  .sitenav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    padding: 0 28px;
+    height: 44px;
+    gap: 4px;
+  }
+  .sitenav a {
+    color: var(--slate);
+    text-decoration: none;
+    font-size: 13.5px;
+    padding: 10px 14px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .sitenav a.active {
+    color: var(--ocean);
+    border-bottom-color: var(--ocean);
+    font-weight: 500;
+  }
+  .sitenav a:hover { color: var(--navy); }
+  .sitenav-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .btn-edit {
+    background: var(--ocean);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .btn-share {
+    background: none;
+    color: var(--ocean);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 6px 14px;
+    font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(130deg, var(--navy) 0%, var(--steel) 60%, #1a4a7a 100%);
+    padding: 52px 28px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -80px; top: -80px;
+    width: 420px; height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(33,150,243,0.15) 0%, transparent 70%);
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 1100px; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(240,165,0,0.15);
+    border: 1px solid rgba(240,165,0,0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--gold);
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.18;
+    margin-bottom: 10px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.62);
+    font-size: 15px;
+    font-weight: 300;
+    max-width: 520px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .hero-search {
+    display: flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: 8px;
+    padding: 10px 18px;
+    gap: 10px;
+    max-width: 500px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.25);
+  }
+  .hero-search input {
+    background: none; border: none; outline: none;
+    font-size: 14.5px; font-family: 'DM Sans', sans-serif;
+    color: var(--navy); flex: 1;
+  }
+  .hero-search input::placeholder { color: #aab8c6; }
+  .hero-search-btn {
+    background: var(--ocean);
+    color: var(--white);
+    border: none; border-radius: 6px;
+    padding: 7px 16px; font-size: 13px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500; cursor: pointer;
+  }
+  .hero-stats {
+    display: flex; gap: 32px; margin-top: 28px;
+  }
+  .hero-stat { color: rgba(255,255,255,0.75); font-size: 13px; }
+  .hero-stat span { color: var(--white); font-weight: 600; font-size: 20px; display: block; }
+
+  /* ── MAIN LAYOUT ── */
+  .main { max-width: 1140px; margin: 0 auto; padding: 36px 28px; display: grid; grid-template-columns: 1fr 300px; gap: 28px; }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 600; color: var(--navy);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px; height: 18px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+  .see-all { font-size: 13px; color: var(--ocean); text-decoration: none; font-weight: 500; }
+  .see-all:hover { text-decoration: underline; }
+
+  /* ── CATEGORY GRID ── */
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 36px; }
+  .cat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.18s;
+    text-decoration: none;
+    display: block;
+  }
+  .cat-card:hover {
+    border-color: var(--sky);
+    box-shadow: 0 4px 18px rgba(21,101,192,0.1);
+    transform: translateY(-2px);
+  }
+  .cat-icon {
+    width: 42px; height: 42px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  .cat-card h3 { font-size: 14px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .cat-card p { font-size: 12px; color: var(--slate); line-height: 1.4; margin-bottom: 10px; }
+  .cat-count {
+    display: inline-block;
+    background: var(--ice);
+    color: var(--ocean);
+    font-size: 11px; font-weight: 600;
+    padding: 2px 8px; border-radius: 10px;
+  }
+
+  /* ── DOCUMENT TABLE ── */
+  .doc-table {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 36px;
+  }
+  .doc-table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 100px;
+    padding: 10px 18px;
+    background: var(--mist);
+    border-bottom: 1px solid var(--border);
+    font-size: 11.5px; font-weight: 600;
+    color: var(--slate); text-transform: uppercase; letter-spacing: 0.5px;
+  }
+  .doc-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 100px;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border);
+    align-items: center;
+    transition: background 0.12s;
+    cursor: pointer;
+  }
+  .doc-row:last-child { border-bottom: none; }
+  .doc-row:hover { background: var(--mist); }
+  .doc-name { display: flex; align-items: center; gap: 10px; }
+  .doc-name svg { flex-shrink: 0; }
+  .doc-name-text { font-size: 13.5px; font-weight: 500; color: var(--navy); }
+  .doc-name-sub { font-size: 11px; color: var(--slate); margin-top: 1px; }
+  .doc-meta { font-size: 12.5px; color: var(--slate); }
+  .doc-badge {
+    display: inline-block;
+    font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: 10px;
+  }
+  .badge-active { background: #e8f5e9; color: #2e7d32; }
+  .badge-review { background: #fff8e1; color: #f57f17; }
+  .badge-draft { background: #f3e5f5; color: #6a1b9a; }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 20px; }
+
+  .widget {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .widget-head {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px; font-weight: 600; color: var(--navy);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .widget-body { padding: 14px 18px; }
+
+  .activity-item {
+    display: flex; gap: 10px; align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .activity-item:last-child { border-bottom: none; }
+  .activity-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 5px;
+  }
+  .activity-text { font-size: 12.5px; color: var(--navy); line-height: 1.4; }
+  .activity-time { font-size: 11px; color: var(--slate); margin-top: 2px; }
+
+  .quick-link {
+    display: flex; align-items: center; gap: 10px;
+    padding: 9px 0; border-bottom: 1px solid var(--border);
+    text-decoration: none; color: var(--navy);
+    font-size: 13px; transition: color 0.12s;
+  }
+  .quick-link:last-child { border-bottom: none; }
+  .quick-link:hover { color: var(--ocean); }
+  .quick-link svg { color: var(--slate); flex-shrink: 0; }
+
+  .contact-card {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+  }
+  .contact-card:last-child { border-bottom: none; }
+  .contact-av {
+    width: 34px; height: 34px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600; color: var(--white);
+    flex-shrink: 0;
+  }
+  .contact-name { font-size: 13px; font-weight: 500; color: var(--navy); }
+  .contact-role { font-size: 11.5px; color: var(--slate); }
+
+  /* ── BREADCRUMB ── */
+  .breadcrumb {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12.5px; color: var(--slate);
+    padding: 12px 28px;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .breadcrumb a { color: var(--ocean); text-decoration: none; }
+  .breadcrumb a:hover { text-decoration: underline; }
+  .breadcrumb span { color: #aab; }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+    Gunderson Marine
+  </div>
+  <nav class="topbar-nav">
+    <a href="#">Home</a>
+    <a href="#" class="active">Policies & Procedures</a>
+    <a href="#">HR Hub</a>
+    <a href="#">Safety</a>
+    <a href="#">Finance</a>
+    <a href="#">IT Support</a>
+  </nav>
+  <div class="topbar-right">
+    <div class="topbar-search">
+      <svg width="14" height="14" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search SharePoint...">
+    </div>
+    <svg width="18" height="18" fill="none" stroke="rgba(255,255,255,0.65)" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg>
+    <div class="avatar">MR</div>
+  </div>
+</div>
+
+<!-- SITE NAV -->
+<div class="sitenav">
+  <a href="#" class="active">Home</a>
+  <a href="#">All Policies</a>
+  <a href="#">By Department</a>
+  <a href="#">Forms & Templates</a>
+  <a href="#">Training</a>
+  <a href="#">Compliance</a>
+  <div class="sitenav-actions">
+    <button class="btn-share">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Share
+    </button>
+    <button class="btn-edit">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      Edit
+    </button>
+  </div>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="#">Gunderson Marine</a>
+  <span>›</span>
+  <span>Policies & Procedures</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Official Company Resource
+    </div>
+    <h1>Policies &<br>Procedures Hub</h1>
+    <p>Your centralized source for all company policies, operational procedures, compliance documents, and regulatory guidelines.</p>
+    <div class="hero-search">
+      <svg width="16" height="16" fill="none" stroke="#aab8c6" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search policies, procedures, forms...">
+      <button class="hero-search-btn">Search</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span>142</span>Documents</div>
+      <div class="hero-stat"><span>18</span>Categories</div>
+      <div class="hero-stat"><span>7</span>Updated this month</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div>
+
+    <!-- CATEGORY GRID -->
+    <div class="section-header">
+      <div class="section-title">Browse by Category</div>
+      <a href="#" class="see-all">View all →</a>
+    </div>
+    <div class="cat-grid">
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#e3f2fd;">⚓</div>
+        <h3>Marine Operations</h3>
+        <p>Vessel protocols, navigation standards, and port procedures.</p>
+        <span class="cat-count">24 docs</span>
+      </a>
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#e8f5e9;">🦺</div>
+        <h3>Health & Safety</h3>
+        <p>HSE policies, incident reporting, and emergency response.</p>
+        <span class="cat-count">31 docs</span>
+      </a>
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#fff8e1;">💼</div>
+        <h3>Human Resources</h3>
+        <p>Employment policies, benefits, leave, and conduct guidelines.</p>
+        <span class="cat-count">19 docs</span>
+      </a>
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#f3e5f5;">💰</div>
+        <h3>Finance & Accounting</h3>
+        <p>Expense policies, procurement, and financial controls.</p>
+        <span class="cat-count">16 docs</span>
+      </a>
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#fce4ec;">🔒</div>
+        <h3>IT & Data Security</h3>
+        <p>Information security, acceptable use, and data governance.</p>
+        <span class="cat-count">22 docs</span>
+      </a>
+      <a class="cat-card" href="#">
+        <div class="cat-icon" style="background:#e0f7fa;">📋</div>
+        <h3>Compliance & Legal</h3>
+        <p>Regulatory compliance, contracts, and legal obligations.</p>
+        <span class="cat-count">30 docs</span>
+      </a>
+    </div>
+
+    <!-- RECENTLY UPDATED -->
+    <div class="section-header">
+      <div class="section-title">Recently Updated</div>
+      <a href="#" class="see-all">All documents →</a>
+    </div>
+    <div class="doc-table">
+      <div class="doc-table-header">
+        <span>Document Name</span>
+        <span>Category</span>
+        <span>Last Updated</span>
+        <span>Status</span>
+      </div>
+
+      <div class="doc-row">
+        <div class="doc-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1565c0" opacity="0.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          <div>
+            <div class="doc-name-text">Vessel Safety Management Policy</div>
+            <div class="doc-name-sub">POL-MAR-001 · Version 3.2</div>
+          </div>
+        </div>
+        <div class="doc-meta">Marine Operations</div>
+        <div class="doc-meta">May 8, 2026</div>
+        <div><span class="doc-badge badge-active">Active</span></div>
+      </div>
+
+      <div class="doc-row">
+        <div class="doc-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1565c0" opacity="0.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          <div>
+            <div class="doc-name-text">Employee Code of Conduct</div>
+            <div class="doc-name-sub">POL-HR-005 · Version 2.1</div>
+          </div>
+        </div>
+        <div class="doc-meta">Human Resources</div>
+        <div class="doc-meta">May 5, 2026</div>
+        <div><span class="doc-badge badge-active">Active</span></div>
+      </div>
+
+      <div class="doc-row">
+        <div class="doc-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#f57f17" opacity="0.85"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          <div>
+            <div class="doc-name-text">Expense Reimbursement Procedure</div>
+            <div class="doc-name-sub">PRO-FIN-012 · Version 1.4</div>
+          </div>
+        </div>
+        <div class="doc-meta">Finance</div>
+        <div class="doc-meta">Apr 29, 2026</div>
+        <div><span class="doc-badge badge-review">Under Review</span></div>
+      </div>
+
+      <div class="doc-row">
+        <div class="doc-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#6a1b9a" opacity="0.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          <div>
+            <div class="doc-name-text">Remote Work Policy 2026</div>
+            <div class="doc-name-sub">POL-HR-014 · Version 1.0</div>
+          </div>
+        </div>
+        <div class="doc-meta">Human Resources</div>
+        <div class="doc-meta">Apr 22, 2026</div>
+        <div><span class="doc-badge badge-draft">Draft</span></div>
+      </div>
+
+      <div class="doc-row">
+        <div class="doc-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1565c0" opacity="0.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="white" stroke-width="1.5"/></svg>
+          <div>
+            <div class="doc-name-text">Incident Reporting & Investigation</div>
+            <div class="doc-name-sub">PRO-HSE-003 · Version 4.0</div>
+          </div>
+        </div>
+        <div class="doc-meta">Health & Safety</div>
+        <div class="doc-meta">Apr 18, 2026</div>
+        <div><span class="doc-badge badge-active">Active</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+
+    <!-- RECENT ACTIVITY -->
+    <div class="widget">
+      <div class="widget-head">
+        <svg width="14" height="14" fill="none" stroke="var(--ocean)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Recent Activity
+      </div>
+      <div class="widget-body">
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#2196f3;"></div>
+          <div>
+            <div class="activity-text">Vessel Safety Policy updated to v3.2</div>
+            <div class="activity-time">J. Carlson · 2 days ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#f0a500;"></div>
+          <div>
+            <div class="activity-text">Expense Procedure sent for review</div>
+            <div class="activity-time">K. Torres · 5 days ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#43a047;"></div>
+          <div>
+            <div class="activity-text">IT Security Policy approved</div>
+            <div class="activity-time">Admin · 1 week ago</div>
+          </div>
+        </div>
+        <div class="activity-item">
+          <div class="activity-dot" style="background:#8e24aa;"></div>
+          <div>
+            <div class="activity-text">Remote Work Policy draft created</div>
+            <div class="activity-time">M. Rodriguez · 2 weeks ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUICK LINKS -->
+    <div class="widget">
+      <div class="widget-head">
+        <svg width="14" height="14" fill="none" stroke="var(--ocean)" stroke-width="2" viewBox="0 0 24 24"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+        Quick Links
+      </div>
+      <div class="widget-body" style="padding: 8px 18px;">
+        <a class="quick-link" href="#">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          Submit a New Policy
+        </a>
+        <a class="quick-link" href="#">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Report a Policy Gap
+        </a>
+        <a class="quick-link" href="#">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download All (ZIP)
+        </a>
+        <a class="quick-link" href="#">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          Policy Review Calendar
+        </a>
+        <a class="quick-link" href="#">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          Policy Owners Directory
+        </a>
+      </div>
+    </div>
+
+    <!-- POLICY CONTACTS -->
+    <div class="widget">
+      <div class="widget-head">
+        <svg width="14" height="14" fill="none" stroke="var(--ocean)" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        Key Contacts
+      </div>
+      <div class="widget-body" style="padding: 8px 18px;">
+        <div class="contact-card">
+          <div class="contact-av" style="background:#1565c0;">JC</div>
+          <div>
+            <div class="contact-name">Jane Carlson</div>
+            <div class="contact-role">Compliance Manager</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-av" style="background:#43a047;">KT</div>
+          <div>
+            <div class="contact-name">Kevin Torres</div>
+            <div class="contact-role">HR Director</div>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-av" style="background:#f0a500;">SP</div>
+          <div>
+            <div class="contact-name">Sara Patel</div>
+            <div class="contact-role">HSE Lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
